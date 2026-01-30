@@ -40,7 +40,7 @@ sub postinitPlugin {
 		func  => \&artistInfoMenu,
 	) );
 
-	if ( Slim::Utils::PluginManager->isEnabled('Slim::Plugin::AudioScrobbler::Plugin') ) {
+	if ( Slim::Utils::PluginManager->isEnabled('Slim::Plugin::AudioScrobbler::Plugin') && Slim::Plugin::AudioScrobbler::Plugin->can('registerLoveHandler') ) {
 		Slim::Plugin::AudioScrobbler::Plugin::registerLoveHandler(sub {
 			my ( $client, $item ) = @_;
 
