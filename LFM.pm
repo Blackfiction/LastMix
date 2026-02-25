@@ -99,7 +99,7 @@ sub loveTrack {
 		}
 
 		$cb->();
-	}, 'mherger');
+	}, $username || $class->getUsername());
 }
 
 sub getSimilarTracks {
